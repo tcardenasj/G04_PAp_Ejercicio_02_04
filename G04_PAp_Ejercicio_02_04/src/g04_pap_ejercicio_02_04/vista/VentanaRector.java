@@ -6,6 +6,7 @@
 package g04_pap_ejercicio_02_04.vista;
 
 import g01_g06_pap_ejercicio_02_04.modelo.Rector;
+import g04_pap_ejercicio_02_04.controlador.EventoVentanaRector;
 import g04_pap_ejercicio_02_04.controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -38,13 +39,14 @@ public class VentanaRector extends JInternalFrame
     private JTable tabla;
     private JScrollPane scroll;
     
-     public VentanaRector(GestionDato gD) {
+    public VentanaRector(GestionDato gD) {
         super("Registrar Rector",true,true,true,true);
         this.gD=gD;
         this.iniciaComponentes();
         this.setSize(900, 500);
     }
-      public void iniciaComponentes()
+      
+    public void iniciaComponentes()
     {
         this.etiList = new ArrayList<JLabel>();
         this.etiList.add(new JLabel("Nombre"));
@@ -90,7 +92,7 @@ public class VentanaRector extends JInternalFrame
 
         
         
-        this.datos = this.cargaDatosTabla(this.gD.getRectorList().size(),4);
+        //this.datos = this.cargaDatosTabla(this.gD.getRectorList().size(),4);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -98,28 +100,92 @@ public class VentanaRector extends JInternalFrame
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
         
-      //  this.boton.addActionListener(new EventoVentanaAutor(this));
+        this.boton.addActionListener(new EventoVentanaRector(this));
         
         this.add(this.panelPrincipal);
         
-     }
-     public Object[][] cargaDatosTabla(int h, int w)
-    {
-        Object[][] retorno= new Object[h][w];
-        int i=0;
-        for(Rector d:this.gD.getRectorList())
-        {
-
-                retorno[i][0]=d.getNombre();
-                retorno[i][1]=d.getApellido();
-                retorno[i][2]=d.getFechaNac();
-                retorno[i][3]=d.getCedula();
-                retorno[i][4]= d.getId();
-                retorno[i][5]= d.getTitulo();
-                i++;
-            }
-            
-            
-        return retorno;
     }
+
+    public List<JLabel> getEtiList() {
+        return etiList;
+    }
+
+    public void setEtiList(List<JLabel> etiList) {
+        this.etiList = etiList;
+    }
+
+    public List<JTextField> getTxtList() {
+        return txtList;
+    }
+
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public JButton getBoton() {
+        return boton;
+    }
+
+    public void setBoton(JButton boton) {
+        this.boton = boton;
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
+    }
+
+    public Object[][] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(Object[][] datos) {
+        this.datos = datos;
+    }
+
+    public Object[] getEncabezado() {
+        return encabezado;
+    }
+
+    public void setEncabezado(Object[] encabezado) {
+        this.encabezado = encabezado;
+    }
+
+    public DefaultTableModel getModeloTabla() {
+        return modeloTabla;
+    }
+
+    public void setModeloTabla(DefaultTableModel modeloTabla) {
+        this.modeloTabla = modeloTabla;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
+    
+    
+      
 }

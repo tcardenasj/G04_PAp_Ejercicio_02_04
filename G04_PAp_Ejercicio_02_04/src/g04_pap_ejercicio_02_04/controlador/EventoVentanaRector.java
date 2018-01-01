@@ -5,6 +5,7 @@
  */
 package g04_pap_ejercicio_02_04.controlador;
 
+import g01_g06_pap_ejercicio_02_04.modelo.Rector;
 import g04_pap_ejercicio_02_04.vista.VentanaRector;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,17 @@ public class EventoVentanaRector implements ActionListener{
    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String nom = this.ventanaRector.getTxtList().get(0).getText().toUpperCase();
+        String ap = this.ventanaRector.getTxtList().get(1).getText().toUpperCase();
+        String feNac = this.ventanaRector.getTxtList().get(2).getText().toUpperCase();
+        String ci = this.ventanaRector.getTxtList().get(3).getText().toUpperCase();
+        int cod = Integer.parseInt(this.ventanaRector.getTxtList().get(4).getText());
+        String tit = this.ventanaRector.getTxtList().get(5).getText().toUpperCase();
+        
+        Rector rec = new Rector(tit,cod,nom,ap,feNac,ci);
+        
+        GestionDato gD = new GestionDato();
+        gD.persistirRector(rec);
     }
     
 }

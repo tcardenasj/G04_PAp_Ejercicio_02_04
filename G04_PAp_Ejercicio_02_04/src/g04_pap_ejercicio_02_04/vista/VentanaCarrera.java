@@ -62,7 +62,7 @@ public class VentanaCarrera  extends JInternalFrame
         this.txtList.add(new JTextField());
         this.txtList.add(new JTextField());
         this.txtList.add(new JTextField());
-        this.combo= new JComboBox(this.cargarCombo());
+        this.combo= new JComboBox();
         this.txtList.add(new JTextField());
         this.boton = new JButton("Guardar");
         
@@ -93,7 +93,7 @@ public class VentanaCarrera  extends JInternalFrame
         this.encabezado[2] = "Instituto";
         this.encabezado[3] = "Capacidad";
         
-        this.datos = this.cargaDatosTabla((this.gD.getCarreraList()).size(), 4);
+        //this.datos = this.cargaDatosTabla((this.gD.getCarreraList()).size(), 4);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -106,29 +106,5 @@ public class VentanaCarrera  extends JInternalFrame
     }
     
 
-      public Object[][] cargaDatosTabla(int h, int w)
-    {
-        Object[][] retorno= new Object[h][w];
-        int i=0;
-        for(Carrera l:this.gD.getCarreraList())
-        {
-            
-                retorno[i][0]=l.getId();
-                retorno[i][1]=l.getNombre();
-                retorno[i][2]=l.getInstituto();
-                retorno[i][3]=l.getCapacidad();
-                i++;
-            
-        }        
-        return retorno;
-    }
-    public String[] cargarCombo(){
-        String[] retorno = new String[this.gD.getInstiList().size()];
-        int i=0;
-        for(Instituto u:this.gD.getInstiList()){
-            retorno[i]=u.getNombre();
-            i++;
-        }
-        return retorno;
-    }
+    
 }

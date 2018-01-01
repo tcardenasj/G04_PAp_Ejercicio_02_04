@@ -91,7 +91,7 @@ public class VentanaEstudiante extends JInternalFrame
 
         
         
-        this.datos = this.cargaDatosTabla(this.gD.getRectorList().size(),4);
+        //this.datos = this.cargaDatosTabla(this.gD.getRectorList().size(),4);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -104,24 +104,5 @@ public class VentanaEstudiante extends JInternalFrame
         this.add(this.panelPrincipal);
         
      }
-     public Object[][] cargaDatosTabla(int h, int w)
-    {
-        Object[][] retorno= new Object[h][w];
-        int i=0;
-        for(Estudiante d:this.gD.getEstudianteList())
-        {
-
-                retorno[i][0]=d.getNombre();
-                retorno[i][1]=d.getApellido();
-                retorno[i][2]=d.getFechaNac();
-                retorno[i][3]=d.getCedula();
-                retorno[i][4]= d.getId();
-                retorno[i][5]= d.getColegio();
-                i++;
-            }
-            
-            
-        return retorno;
-    }
     
 }

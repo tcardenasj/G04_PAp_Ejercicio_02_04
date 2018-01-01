@@ -20,13 +20,8 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        List<Carrera> carreraList = new ArrayList<Carrera>();
-        List<Estudiante> estudianList = new ArrayList<Estudiante>();
-        List<Rector> rectorList = new ArrayList<Rector>();
-        List<Inscripcion> InscripList = new ArrayList<Inscripcion>();
-        List<Instituto> istiList = new ArrayList<Instituto>();
         
-        GestionDato gD = new GestionDato(carreraList,estudianList,InscripList,istiList,rectorList);
+        GestionDato gD = new GestionDato();
         VentanaPrincipal vP = new VentanaPrincipal(gD,"INSTITUTO TECNOLOGICO",1200,600);
         vP.setVisible(true);
     }

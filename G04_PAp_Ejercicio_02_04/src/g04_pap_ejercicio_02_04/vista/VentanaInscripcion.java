@@ -57,8 +57,8 @@ public class VentanaInscripcion extends JInternalFrame
         
         this.txtList = new ArrayList<JTextField>();
         this.txtList.add(new JTextField());
-        this.combo= new JComboBox(this.cargarCombo());
-        this.combo2= new JComboBox(this.cargarCombo2());
+        this.combo= new JComboBox();
+        this.combo2= new JComboBox();
         this.boton = new JButton("Guardar");
         
         LayoutManager disenioPrincipal = new BorderLayout();
@@ -83,7 +83,7 @@ public class VentanaInscripcion extends JInternalFrame
         this.encabezado[1] = "Estudiante";
         this.encabezado[2] = "Carrera";
         
-        this.datos = this.cargaDatosTabla(this.gD.getInscripList().size(), 3);
+        //this.datos = this.cargaDatosTabla(this.gD.getInscripList().size(), 3);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -93,41 +93,5 @@ public class VentanaInscripcion extends JInternalFrame
         
         this.add(this.panelPrincipal);
         
-    }
-    
-    public Object[][] cargaDatosTabla(int h, int w)
-    {
-        Object[][] retorno= new Object[h][w];
-        int i=0;
-        for(Inscripcion c:this.gD.getInscripList())
-        {
-            
-                retorno[i][0]=c.getId();
-                retorno[i][1]=c.getEstudiante();
-                retorno[i][2]=c.getCarrera();
-
-            i++;
-            
-        }        
-        return retorno;
-    }
-    
-    public String[] cargarCombo(){
-        String[] retorno = new String[this.gD.getEstudianteList().size()];
-        int i=0;
-        for(Estudiante c:this.gD.getEstudianteList()){
-            retorno[i]=c.getNombre();
-            i++;
-        }
-        return retorno;
-    }
-     public String[] cargarCombo2(){
-        String[] retorno = new String[this.gD.getCarreraList().size()];
-        int i=0;
-        for(Carrera d:this.gD.getCarreraList()){
-            retorno[i]=d.getNombre();
-            i++;
-        }
-        return retorno;
     }
 }
