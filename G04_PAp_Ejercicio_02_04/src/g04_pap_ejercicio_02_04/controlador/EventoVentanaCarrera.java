@@ -5,6 +5,7 @@
  */
 package g04_pap_ejercicio_02_04.controlador;
 
+import g01_g06_pap_ejercicio_02_04.modelo.Carrera;
 import g04_pap_ejercicio_02_04.vista.VentanaCarrera;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,15 @@ public class EventoVentanaCarrera implements ActionListener{
    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int cod = Integer.parseInt(this.ventanaCarrera.getTxtList().get(0).getText());
+        String nom = this.ventanaCarrera.getTxtList().get(1).getText().toUpperCase();
+        String ins = this.ventanaCarrera.getCombo().getSelectedItem().toString();
+        int cap = Integer.parseInt(this.ventanaCarrera.getTxtList().get(3).getText().toUpperCase());
+        
+        Carrera ca = new Carrera(cod,nom,this.ventanaCarrera.getgD().buscarInstituto(ins),cap);
+        
+        
+        this.ventanaCarrera.getgD().persistirCarrera(ca);
     }
     
 }

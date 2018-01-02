@@ -5,6 +5,7 @@
  */
 package g04_pap_ejercicio_02_04.controlador;
 
+import g01_g06_pap_ejercicio_02_04.modelo.Instituto;
 import g04_pap_ejercicio_02_04.vista.VentanaInstituto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,17 @@ public class EventoVentanaInstituto implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int cod = Integer.parseInt(this.ventanaInstituto.getTxtList().get(0).getText());
+        String nom = this.ventanaInstituto.getTxtList().get(1).getText().toUpperCase();
+        String dir = this.ventanaInstituto.getTxtList().get(2).getText().toUpperCase();
+        String rec = this.ventanaInstituto.getCombo().getSelectedItem().toString();
+        String tel = this.ventanaInstituto.getTxtList().get(3).getText().toUpperCase();
+        String ciu = this.ventanaInstituto.getTxtList().get(4).getText().toUpperCase();
+
+        
+        Instituto ins = new Instituto(cod,nom,dir,this.ventanaInstituto.getgD().buscarRector(rec),tel,ciu);
+        
+        this.ventanaInstituto.getgD().persistirInstituto(ins);
     }
     
 }

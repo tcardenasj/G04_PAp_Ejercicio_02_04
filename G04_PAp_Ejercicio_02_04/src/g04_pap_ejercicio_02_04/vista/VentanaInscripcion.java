@@ -8,6 +8,7 @@ package g04_pap_ejercicio_02_04.vista;
 import g01_g06_pap_ejercicio_02_04.modelo.Carrera;
 import g01_g06_pap_ejercicio_02_04.modelo.Estudiante;
 import g01_g06_pap_ejercicio_02_04.modelo.Inscripcion;
+import g04_pap_ejercicio_02_04.controlador.EventoVentanaInscripcion;
 import g04_pap_ejercicio_02_04.controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -89,9 +90,108 @@ public class VentanaInscripcion extends JInternalFrame
         this.scroll = new JScrollPane(tabla);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
-     //   this.boton.addActionListener(new EventoVentanaInscripcion(this));
+        this.boton.addActionListener(new EventoVentanaInscripcion(this));
         
         this.add(this.panelPrincipal);
         
     }
+
+    public List<JLabel> getEtiList() {
+        return etiList;
+    }
+
+    public void setEtiList(List<JLabel> etiList) {
+        this.etiList = etiList;
+    }
+
+    public List<JTextField> getTxtList() {
+        return txtList;
+    }
+
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public JComboBox getCombo() {
+        return combo;
+    }
+
+    public void setCombo(JComboBox combo) {
+        this.combo = combo;
+    }
+
+    public JComboBox getCombo2() {
+        return combo2;
+    }
+
+    public void setCombo2(JComboBox combo2) {
+        this.combo2 = combo2;
+    }
+
+    public JButton getBoton() {
+        return boton;
+    }
+
+    public void setBoton(JButton boton) {
+        this.boton = boton;
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
+    }
+
+    public Object[][] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(Object[][] datos) {
+        this.datos = datos;
+    }
+
+    public Object[] getEncabezado() {
+        return encabezado;
+    }
+
+    public void setEncabezado(Object[] encabezado) {
+        this.encabezado = encabezado;
+    }
+
+    public DefaultTableModel getModeloTabla() {
+        return modeloTabla;
+    }
+
+    public void setModeloTabla(DefaultTableModel modeloTabla) {
+        this.modeloTabla = modeloTabla;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
+      
+      
+      
 }

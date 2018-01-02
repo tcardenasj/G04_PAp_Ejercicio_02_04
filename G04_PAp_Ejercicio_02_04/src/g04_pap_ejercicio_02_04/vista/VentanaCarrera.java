@@ -7,6 +7,7 @@ package g04_pap_ejercicio_02_04.vista;
 
 import g01_g06_pap_ejercicio_02_04.modelo.Carrera;
 import g01_g06_pap_ejercicio_02_04.modelo.Instituto;
+import g04_pap_ejercicio_02_04.controlador.EventoVentanaCarrera;
 import g04_pap_ejercicio_02_04.controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -63,7 +64,6 @@ public class VentanaCarrera  extends JInternalFrame
         this.txtList.add(new JTextField());
         this.txtList.add(new JTextField());
         this.combo= new JComboBox();
-        this.txtList.add(new JTextField());
         this.boton = new JButton("Guardar");
         
         LayoutManager disenioPrincipal = new BorderLayout();
@@ -79,7 +79,7 @@ public class VentanaCarrera  extends JInternalFrame
         panelSup.add(this.etiList.get(2));
         panelSup.add(this.combo);
         panelSup.add(this.etiList.get(3));
-        panelSup.add(this.txtList.get(3));
+        panelSup.add(this.txtList.get(2));
         
         
         
@@ -99,12 +99,101 @@ public class VentanaCarrera  extends JInternalFrame
         this.scroll = new JScrollPane(tabla);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
-       // this.boton.addActionListener(new EventoVentanaArticulo(this));
+        this.boton.addActionListener(new EventoVentanaCarrera(this));
         
         this.add(this.panelPrincipal);
         
     }
+
+    public List<JLabel> getEtiList() {
+        return etiList;
+    }
+
+    public void setEtiList(List<JLabel> etiList) {
+        this.etiList = etiList;
+    }
+
+    public List<JTextField> getTxtList() {
+        return txtList;
+    }
+
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public JComboBox getCombo() {
+        return combo;
+    }
+
+    public void setCombo(JComboBox combo) {
+        this.combo = combo;
+    }
+
+    public JButton getBoton() {
+        return boton;
+    }
+
+    public void setBoton(JButton boton) {
+        this.boton = boton;
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
+    }
+
+    public Object[][] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(Object[][] datos) {
+        this.datos = datos;
+    }
+
+    public Object[] getEncabezado() {
+        return encabezado;
+    }
+
+    public void setEncabezado(Object[] encabezado) {
+        this.encabezado = encabezado;
+    }
+
+    public DefaultTableModel getModeloTabla() {
+        return modeloTabla;
+    }
+
+    public void setModeloTabla(DefaultTableModel modeloTabla) {
+        this.modeloTabla = modeloTabla;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
     
+   
 
     
 }

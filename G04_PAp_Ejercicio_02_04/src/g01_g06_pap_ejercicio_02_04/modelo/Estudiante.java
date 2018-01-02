@@ -14,16 +14,68 @@ import javax.persistence.Id;
  * @author DavidMorales
  */
 @Entity
-public class Estudiante extends Persona implements Serializable {
+public class Estudiante  implements Serializable {
     
-    @Id
+   @Id
     private int id;
+    private String nombre;
+    private String apellido;
+    private String fechaNac;
+    private String cedula;
     private String colegio;
 
-    public Estudiante(String colegio, int id, String nombre, String apellido, String fechaNac, String cedula) {
-        super( nombre, apellido, fechaNac, cedula);
+    public Estudiante() {
+    }
+
+    
+    
+    public Estudiante(int id, String nombre, String apellido, String fechaNac, String cedula, String colegio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNac = fechaNac;
+        this.cedula = cedula;
         this.colegio = colegio;
-        this.id=id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getColegio() {
@@ -34,11 +86,6 @@ public class Estudiante extends Persona implements Serializable {
         this.colegio = colegio;
     }
 
-    @Override
-    public String toString() {
-        return "Estudiante{" + "colegio=" + colegio + '}';
-    }
-    
     
     
 }

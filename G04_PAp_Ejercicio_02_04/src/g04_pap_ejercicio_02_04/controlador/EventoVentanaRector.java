@@ -41,10 +41,10 @@ public class EventoVentanaRector implements ActionListener{
         int cod = Integer.parseInt(this.ventanaRector.getTxtList().get(4).getText());
         String tit = this.ventanaRector.getTxtList().get(5).getText().toUpperCase();
         
-        Rector rec = new Rector(tit,cod,nom,ap,feNac,ci);
+        Rector rec = new Rector(cod,nom,ap,feNac,ci,tit);
         
-        GestionDato gD = new GestionDato();
-        gD.persistirRector(rec);
+        
+        this.ventanaRector.getgD().persistirRector(rec);
     }
     
 }

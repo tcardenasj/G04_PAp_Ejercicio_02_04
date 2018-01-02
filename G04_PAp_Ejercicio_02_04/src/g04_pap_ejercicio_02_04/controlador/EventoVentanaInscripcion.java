@@ -5,6 +5,7 @@
  */
 package g04_pap_ejercicio_02_04.controlador;
 
+import g01_g06_pap_ejercicio_02_04.modelo.Inscripcion;
 import g04_pap_ejercicio_02_04.vista.VentanaInscripcion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,14 @@ public class EventoVentanaInscripcion implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int cod = Integer.parseInt(this.ventanaInscripcion.getTxtList().get(0).getText());
+        String est = this.ventanaInscripcion.getCombo().getSelectedItem().toString();
+        String car = this.ventanaInscripcion.getCombo2().getSelectedItem().toString();
+        
+        
+        Inscripcion ins = new Inscripcion(cod,this.getVentanaInscripcion().getgD().buscarEstudiante(est),this.ventanaInscripcion.getgD().buscarCarrera(car));
+        
+        this.ventanaInscripcion.getgD().persistirInscripcion(ins);
     }
     
     

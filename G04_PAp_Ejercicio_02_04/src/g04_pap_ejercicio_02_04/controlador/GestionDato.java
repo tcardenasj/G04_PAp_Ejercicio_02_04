@@ -125,4 +125,72 @@ public class GestionDato
         return retorno;
     }
     
+    public Instituto buscarInstituto(String nombre) {
+        Instituto retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Instituto.class, nombre);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
+    public Rector buscarRector(String nombre) {
+        Rector retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Rector.class, nombre);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
+    public Estudiante buscarEstudiante(String nombre) {
+        Estudiante retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Estudiante.class, nombre);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
+    public Carrera buscarCarrera(String nombre) {
+        Carrera retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Carrera.class, nombre);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
 }
