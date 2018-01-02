@@ -7,6 +7,7 @@ package g01_g06_pap_ejercicio_02_04.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,12 +15,26 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Rector extends Persona implements Serializable {
+    
+    @Id
+    private int id;
     private String titulo;
 
     public Rector(String titulo, int id, String nombre, String apellido, String fechaNac, String cedula) {
-        super(id, nombre, apellido, fechaNac, cedula);
+        super(nombre, apellido, fechaNac, cedula);
         this.titulo = titulo;
+        this.id=id;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
     public String getTitulo() {
         return titulo;

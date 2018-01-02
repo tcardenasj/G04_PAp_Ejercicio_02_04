@@ -7,6 +7,7 @@ package g01_g06_pap_ejercicio_02_04.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,11 +15,15 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Estudiante extends Persona implements Serializable {
+    
+    @Id
+    private int id;
     private String colegio;
 
     public Estudiante(String colegio, int id, String nombre, String apellido, String fechaNac, String cedula) {
-        super(id, nombre, apellido, fechaNac, cedula);
+        super( nombre, apellido, fechaNac, cedula);
         this.colegio = colegio;
+        this.id=id;
     }
 
     public String getColegio() {

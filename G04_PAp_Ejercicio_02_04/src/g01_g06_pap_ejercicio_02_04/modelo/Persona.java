@@ -7,36 +7,31 @@ package g01_g06_pap_ejercicio_02_04.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author DavidMorales
  */
-@Entity
-public abstract class Persona implements Serializable {
-    @Id
-    private int id;
+public  class Persona  {
+    
+    
     private String nombre;
     private String apellido;
     private String fechaNac;
     private String cedula;
 
-    public Persona(int id, String nombre, String apellido, String fechaNac, String cedula) {
-        this.id = id;
+
+    public Persona( String nombre, String apellido, String fechaNac, String cedula) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
         this.cedula = cedula;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     public String getNombre() {
         return nombre;
@@ -72,7 +67,7 @@ public abstract class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNac=" + fechaNac + ", cedula=" + cedula + '}';
+        return "Persona{" + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNac=" + fechaNac + ", cedula=" + cedula + '}';
     }
     
     

@@ -23,7 +23,7 @@ import javax.persistence.Persistence;
 public class GestionDato
 {
     
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("G04_PAp_Ejercicio_02_04PU");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("Persistencia02_04");
     
     public boolean persistirCarrera(Carrera c)
     {
